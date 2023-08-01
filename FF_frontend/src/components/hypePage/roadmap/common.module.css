@@ -1,0 +1,4 @@
+.section {
+    margin: 200px auto;
+    -webkit-margin-collapse: collapse;
+}

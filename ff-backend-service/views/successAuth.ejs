@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Flockfysh authorization</title>
+</head>
+<body>
+
+</body>
+<script>
+  window.opener.postMessage(JSON.parse('<%- data %>'), "<%- originUrl %>");
+</script>
+</html>

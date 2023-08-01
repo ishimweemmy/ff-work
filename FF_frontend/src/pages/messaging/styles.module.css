@@ -1,0 +1,645 @@
+.chatContainer {
+    width: 100%;
+    height: fit-content;
+    background: white;
+    color: black;
+    display: grid;
+    grid-template-columns: 4% 22% 75%;
+}
+
+.menuSide {
+    background-color: #36404a;
+    box-shadow: 0 2px 4px rgba(15, 34, 58, 0.12);
+    height: 100%;
+    max-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-between;
+    gap: 9rem;
+    padding: 3rem 0;
+    width: 100%;
+    z-index: 9;
+    color: #a6b0cf;
+}
+
+.leftSide {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background: #303841;
+    align-items: center;
+}
+
+.chatSide {
+    width: 100%;
+    background: #262e35;
+    box-shadow: 0 2px 4px rgba(15, 34, 58, 0.12);
+    height: 100%;
+    display: flex;
+}
+
+.menuItems {
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.6rem;
+}
+
+.bottomMenuIcons {
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.6rem;
+}
+
+.icon {
+    font-size: x-large;
+}
+
+.menuLink {
+    background: transparent;
+    padding: .75rem 1rem;
+    border-radius: 1rem;
+    cursor: pointer;
+}
+
+.menuLinkActive {
+    background: #3e4a56;
+    color: #7269ef;
+    padding: .75rem 1rem;
+    border-radius: 1rem;
+    transition: .5s ease;
+    cursor: pointer;
+}
+
+.leftTopContainer {
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    color: white;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 0 0;
+    gap: 1rem;
+}
+
+.onlineMembers {
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    gap: 1rem;
+    padding: 1rem;
+}
+
+.onlineMember {
+    width: 80%;
+    height: 5rem;
+    color: white;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    font-size: small;
+    font-weight: 500;
+    gap: 0.3rem;
+    cursor: pointer;
+}
+
+.onlineMember > span {
+    position: relative;
+    z-index: 9999;
+    margin-bottom: 10rem;
+}
+
+.userImageContainer {
+    width: fit-content;
+    position: relative;
+    border-radius: 2rem;
+    position: relative;
+    z-index: 9999;
+}
+
+.userImageContainer > img {
+    width: 3rem;
+    height: 100%;
+    border-radius: 2rem;
+}
+
+.userStatus {
+    width: 0.6rem;
+    height: 0.6rem;
+    background: #06d6a0;
+    border-radius: 50%;
+    position: absolute;
+    right: 0.2rem;
+    bottom: -0.1rem;
+    border: 2px solid #262e35;
+    z-index: 9999;
+}
+
+.outlinedInput {
+    height: 3rem;
+    width: 90%;
+}
+
+.blurry {
+    width: 95%;
+    height: 70%;
+    background: rgba(255, 255, 255, 0.056);
+    border-radius: 10% 10% 10% 10%;
+    position: absolute;
+    z-index: 10;
+    bottom: 0;
+}
+
+.chatTitle {
+    align-self: flex-start;
+    font-size: x-large;
+    font-weight: bold;
+    margin-left: 1rem;
+}
+
+.recentsTitle {
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    margin-left: 1rem;
+    margin-bottom: 1rem;
+}
+
+.recentChats {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.recentChatsContainer {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    max-height: 65vh;
+    overflow-y: scroll;
+}
+
+.recentChat {
+    width: 100%;
+    height: fit-content;
+    display: grid;
+    grid-template-columns: 15% 65% 20%;
+    padding: 1rem 1rem;
+    border-radius: 1rem;
+    transition: 0.5s ease-out;
+}
+
+.recentChat:hover {
+    background: #3e4a5662;
+    cursor: pointer;
+    scale: 0.9;
+}
+
+.userNotTyping {
+    color: #fff;
+    font-size: small;
+}
+
+.userTyping {
+    color: #7269ef;
+    font-size: small;;
+}
+
+.recentChat > div > span:nth-of-type(1) {
+    color: #fff;
+    font-size: 15px;
+    font-weight: 600;
+    display: flex;
+    flex-direction: column;
+}
+
+.recentChat > span:nth-of-type(1) {
+    color: #abb4d2;
+    font-size: small;
+    white-space: nowrap;
+}
+
+.chat {
+    width: 70%;
+    border-right: 5px solid #36404a;
+}
+
+.chat_w_r_open {
+    width: 100%;
+}
+
+.chatNav {
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.8rem 0;
+    border-bottom: 1px solid #36404a;
+}
+
+.leftChatNav {
+    width: fit-content;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    cursor: pointer;
+}
+
+.leftChatNav > img {
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 2rem;
+}
+
+.leftChatNav > span {
+    color: white;
+    font-size: medium;
+    white-space: nowrap;
+    font-weight: 600;
+}
+
+.leftChatNav > .userStatus {
+    position: relative;
+    width: 0.8rem;
+    height: 0.8rem;
+}
+
+.rightChatNav {
+    flex: 2;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 2rem;
+    padding-right: 2rem;
+}
+
+.rightChatNav > .chatIcon {
+    color: #abb4d2;
+    font-size: x-large;
+    padding: 0.1rem;
+}
+
+.chatMessages {
+    width: 100%;
+    height: 100%;
+    max-height: 80vh;
+    overflow-y: scroll;
+    border-bottom: 1px solid #36404a;
+}
+
+.chatMessages > .outerReceivedContainer {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 2rem;
+}
+
+.chatMessages > .outerReceivedContainer > .innerContainer {
+    width: fit-content;
+    max-width: 70%;
+    display: flex;
+    gap: 0.75rem;
+}
+
+.chatMessages > .outerReceivedContainer > .innerContainer > img {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    align-self: flex-end;
+}
+
+.chatMessages > .outerReceivedContainer > .innerContainer > .messageInfoCont {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
+/* sent messages */
+
+.chatMessages > .outerSentContainer {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 2rem;
+}
+
+.chatMessages > .outerSentContainer > .innerContainer {
+    width: fit-content;
+    max-width: 70%;
+    display: flex;
+    gap: 0.75rem;
+}
+
+.chatMessages > .outerSentContainer > .innerContainer > img {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    align-self: flex-end;
+}
+
+.chatMessages > .outerSentContainer > .innerContainer > .messageInfoCont {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 1rem;
+}
+
+.chatMessages
+    > .outerSentContainer
+    > .innerContainer
+    > .messageInfoCont
+    > .chatterUsername {
+    color: #abb4d2;
+    font-size: 0.75rem;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.chatMessages
+    > .outerSentContainer
+    > .innerContainer
+    > .messageInfoCont
+    > .message {
+    width: 100%;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 0.2rem;
+    border-radius: 1rem;
+    color: white;
+    background: #36404a;
+    position: relative;
+}
+
+.chatMessages
+    > .outerSentContainer
+    > .innerContainer
+    > .messageInfoCont
+    > .message::after {
+    border-bottom: 10px solid transparent;
+    border-right: 1rem solid #36404a;
+    border-right-color: #36404a;
+    border-left: 3rem solid transparent;
+    border-top: 3rem solid #36404a;
+    border-top-color: #36404a;
+    bottom: -10px;
+    content: '';
+    right: 0;
+    position: absolute;
+    left: auto;
+}
+
+.chatMessages
+    > .outerReceivedContainer
+    > .innerContainer
+    > .messageInfoCont
+    > .chatterUsername {
+    justify-self: flex-start;
+    color: #abb4d2;
+    font-size: 0.75rem;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.chatMessages
+    > .outerReceivedContainer
+    > .innerContainer
+    > .messageInfoCont
+    > .message {
+    width: 100%;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 0.2rem;
+    border-radius: 1rem;
+    color: white;
+    background: #7269ef;
+    position: relative;
+}
+
+.chatMessages
+    > .outerReceivedContainer
+    > .innerContainer
+    > .messageInfoCont
+    > .message::before {
+    border-bottom: 10px solid transparent;
+    border-left: 1rem solid #7269ef;
+    border-left-color: #7269ef;
+    border-right: 3rem solid transparent;
+    border-top: 3rem solid #7269ef;
+    border-top-color: #7269ef;
+    bottom: -10px;
+    content: '';
+    left: 0;
+    position: absolute;
+    right: auto;
+}
+
+.actualMessage {
+    position: relative;
+    z-index: 9999;
+    font-size: medium;
+}
+
+.sendingTime {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 9999;
+    font-size: 0.6rem;
+    opacity: 0.7;
+}
+
+.messageIcon {
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.chatActions {
+    width: 100%;
+    height: 5rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 1rem;
+    max-height: 10rem;
+    padding: 0 2rem;
+}
+
+.sendMessage {
+    width: 70%;
+    background: rgba(54, 64, 74);
+    outline: none;
+    color: #a6b0cf;
+    height: 3rem;
+    padding: 1rem;
+    border-radius: 0.4rem;
+}
+
+.sendMessage::placeholder {
+    color: #a6b0cf;
+}
+
+.actionIcon {
+    color: #aaa5f5;
+    font-size: 1.3rem;
+    cursor: pointer;
+}
+
+.finalSend {
+    color: white;
+    background: #7269ef;
+    padding: 1rem;
+    border-radius: 1rem;
+}
+
+.innerProfileContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+    gap: 1rem;
+    border-bottom: 1px solid #36404a;
+    margin: 2rem 0;
+}
+
+.innerProfileContainer > .userImage {
+    width: 7rem;
+    height: 7rem;
+    border-radius: 50%;
+    border: 5px solid rgba(0, 0, 0, 0.294);
+}
+
+.profileDetails {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.profileDetails > .userStatus {
+    position: relative;
+}
+
+.innerProfileContainer > span {
+    color: white;
+}
+
+.profileDetails > span {
+    color: white;
+}
+
+.profileStatus {
+    color: #abb4d2;
+}
+
+.mostInnerOne {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+}
+
+.mostInnerOne > span:nth-child(1) {
+    font-weight: 600;
+}
+
+.rightSideOpen {
+    width: 30%;
+    padding: 0 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    position: relative;
+}
+
+.rightSideHidden {
+    display: none;
+}
+
+.profileDesc {
+    width: 100%;
+}
+
+.accordion {
+    background: transparent;
+    color: white;
+    border: 0.5px solid #36404a;
+    box-shadow: none;
+}
+
+.accordionSummary {
+    width: 100%;
+    height: 1rem !important;
+    background: rgba(166, 176, 207, 0.03);
+    display: flex;
+    font-size: 0.9rem;
+}
+
+.accordionDetails {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 1rem;
+    font-size: 0.9rem;
+}
+
+.accordionDetails > div {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.accordionDetails > div > span:nth-child(1) {
+    color: #abb4d2;
+}
+
+.crossIcon {
+    position: relative;
+    left: 5rem;
+    margin: 1rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.menuLink > img {
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 2rem;
+}
+
+.userStatusOffline {
+    background: black;
+}
+
