@@ -1,17 +1,13 @@
 import { useState } from 'react';
 import { ReactSVG } from 'react-svg';
 
-import mime from 'mime-types';
-
-import AssetViewer from '@/components/specific/datasets/viewDataset/assetViewer';
-
 import search from '@/icons/main/search.svg';
 import grid from '@/icons/main/grid.svg';
 import list from '@/icons/main/list.svg';
 
 import classes from './styles.module.css';
 
-export default function PostItemViewer(posts: HomepagePost) {
+export default function PostItemViewer() {
     const [showList, setShowList] = useState(true);
     const [currentNameQuery, setCurrentNameQuery] = useState('');
 
@@ -22,6 +18,7 @@ export default function PostItemViewer(posts: HomepagePost) {
     const toggleViewToGrid = () => {
         setShowList(false);
     };
+
 
     return (
         <div className={ classes.itemsContainer }>

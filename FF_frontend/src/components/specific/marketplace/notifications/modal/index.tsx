@@ -57,7 +57,7 @@ const ModalScreen = ({
     });
 
     return notificationResourceList;
-  }, [notifications]);
+  }, [notifications, getNotifications]);
 
   return (
     <>

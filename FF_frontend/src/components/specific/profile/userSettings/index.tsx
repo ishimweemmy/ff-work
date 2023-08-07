@@ -117,7 +117,6 @@ export default function UserSettings(props: UserSettings) {
     twitter: '',
     website: '',
   });
-  const [email, _setEmail] = useState(props.email);
   const [oldPassword, setOldPassword] = useState('');
   const [newPassword, setNewPassword] = useState('');
   const [apiKey, setApiKey] = useState(props.apiKey);

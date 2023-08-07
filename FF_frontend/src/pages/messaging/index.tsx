@@ -17,7 +17,7 @@ import { MdLanguage, MdOutlineLightMode } from 'react-icons/md'
 import { Accordion, AccordionDetails, AccordionSummary, InputAdornment, OutlinedInput } from '@mui/material'
 import { BiSolidImage, BiSolidPhoneCall } from 'react-icons/bi'
 import { AiFillVideoCamera, AiOutlineClockCircle } from 'react-icons/ai'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { RxCrossCircled } from 'react-icons/rx'
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -87,85 +87,6 @@ const Index = () => {
         })
     })
   }
-
-  const [onlineMembers, setOnlineMembers] = useState([
-    {
-        imgSrc: 'https://picsum.photos/300/200?grayscale',
-        username: 'ishimwe',
-        userId: 1
-    },
-    {
-        imgSrc: 'https://picsum.photos/300/200?grayscale',
-        username: 'ishimwe',
-        userId: 2
-    },
-    {
-        imgSrc: 'https://picsum.photos/300/200?grayscale',
-        username: 'ishimwe',
-        userId: 3
-    },
-    {
-        imgSrc: 'https://picsum.photos/300/200?grayscale',
-        username: 'ishimwe',
-        userId: 4
-    },
-    {
-        imgSrc: 'https://picsum.photos/300/200?grayscale',
-        username: 'ishimwe',
-        userId: 5
-    },
-  ])
-
-  const [recentMessages, setRecentMessages] = useState([
-    {
-        senderName: 'ishimwe emmy',
-        senderImgSrc: 'https://picsum.photos/200/200',
-        senderMessage: 'yeah, I was waiting for her...',
-        sendTime: '10:05 PM',
-        active: true,
-        typing: false
-    },
-    {
-        senderName: 'gloria gogo',
-        senderImgSrc: 'https://picsum.photos/200/200',
-        senderMessage: 'OMG, seriously? I didnt know it had happened...',
-        sendTime: '10:05 PM',
-        active: false,
-        typing: false
-    },
-    {
-        senderName: 'axelle',
-        senderImgSrc: 'https://picsum.photos/200/200',
-        senderMessage: 'It is true though, I knew it from the start...',
-        sendTime: '10:05 PM',
-        active: true,
-        typing: true
-    },
-    {
-        senderName: 'gloria gogo',
-        senderImgSrc: 'https://picsum.photos/200/200',
-        senderMessage: 'OMG, seriously? I didnt know it had happened...',
-        sendTime: '10:05 PM',
-        active: false,
-        typing: false
-    },
-    {
-        senderName: 'ishimwe emmy',
-        senderImgSrc: 'https://picsum.photos/200/200',
-        senderMessage: 'yeah, I was waiting for her...',
-        sendTime: '10:05 PM',
-        active: true,
-        typing: false
-    },
-    {
-        senderName: 'axelle',
-        senderImgSrc: 'https://picsum.photos/200/200',
-        senderMessage: 'It is true though, I knew it from the start...',
-        sendTime: '10:05 PM',
-        active: true,
-        typing: true
-    },
-  ])
 
   const [chatMessages, setChatMessages] = useState([
     {
@@ -244,62 +165,7 @@ const Index = () => {
             </div>
         </div>
         <div className={classes.leftSide}>
-            <div className={classes.leftTopContainer}>
-                <span className={classes.chatTitle}>Chats</span>
-                <OutlinedInput
-                    placeholder="Search messages or users"
-                    className={classes.outlinedInput}
-                    startAdornment={
-                        <InputAdornment position="end">
-                            <FiSearch style={{marginRight: '1rem'}} color='white'  />
-                        </InputAdornment>
-                    }
-                    sx={{color: "#a6b0cf"}}
-                />
-                <div className={classes.onlineMembers}>
-                    <Swiper
-                        modules={[A11y, Navigation]}
-                        spaceBetween={2}
-                        slidesPerView={4}
-                        onSwiper={(swiper) => console.log(swiper)}
-                        onSlideChange={() => console.log('slide change')}
-                        style={{width: '100%', height: '100%'}}
-                    >
-                        {onlineMembers.map(member => (
-                            <SwiperSlide style={{width: '100%', height:'100%'}}>
-                                <div className={classes.onlineMember}>
-                                    <div className={classes.userImageContainer}>
-                                        <img src="https://picsum.photos/200/200?grayscale" className={classes.userImage} alt="" />
-                                        <div className={classes.userStatus}></div>
-                                    </div>
-                                    <div className={classes.blurry}></div>
-                                    <span>
-                                        Steve
-                                    </span>
-                                </div>
-                            </SwiperSlide>
-                        ))}
-                    </Swiper>
-                </div>
-            </div>
-            <div className={classes.recentChats}>
-                <span className={classes.recentsTitle}>Recent</span>
-                <div className={classes.recentChatsContainer}>
-                    {recentMessages.map(message => (
-                        <div className={classes.recentChat}>
-                            <div className={classes.userImageContainer}>
-                                <img src={message.senderImgSrc} className={classes.userImage} alt="" />
-                                <div className={`${classes.userStatus} ${!message.active ? classes.userStatusOffline : ''}`}></div>
-                            </div>
-                            <div>
-                                <span>{message.senderName}</span>
-                                <span className={message.typing ? classes.userTyping : classes.userNotTyping}>{message.typing ? 'typing...' : truncateText(message.senderMessage)}</span>
-                            </div>
-                            <span>{message.sendTime}</span>
-                        </div>
-                    ))}
-                </div>
-            </div>
+            <RecentChatsSection />
         </div>
         <div className={classes.chatSide}>
             <div className={`${classes.chat} ${rightSideOpen ? '' : classes.chat_w_r_open}`}>
@@ -428,3 +294,144 @@ const Index = () => {
 
 export default Index;
 
+
+
+
+const RecentChatsSection = () => {
+    const [onlineMembers, setOnlineMembers] = useState([
+        {
+            imgSrc: 'https://picsum.photos/300/200?grayscale',
+            username: 'ishimwe',
+            userId: 1
+        },
+        {
+            imgSrc: 'https://picsum.photos/300/200?grayscale',
+            username: 'ishimwe',
+            userId: 2
+        },
+        {
+            imgSrc: 'https://picsum.photos/300/200?grayscale',
+            username: 'ishimwe',
+            userId: 3
+        },
+        {
+            imgSrc: 'https://picsum.photos/300/200?grayscale',
+            username: 'ishimwe',
+            userId: 4
+        },
+        {
+            imgSrc: 'https://picsum.photos/300/200?grayscale',
+            username: 'ishimwe',
+            userId: 5
+        },
+      ])
+    
+      const [recentMessages, setRecentMessages] = useState([
+        {
+            senderName: 'ishimwe emmy',
+            senderImgSrc: 'https://picsum.photos/200/200',
+            senderMessage: 'yeah, I was waiting for her...',
+            sendTime: '10:05 PM',
+            active: true,
+            typing: false
+        },
+        {
+            senderName: 'gloria gogo',
+            senderImgSrc: 'https://picsum.photos/200/200',
+            senderMessage: 'OMG, seriously? I didnt know it had happened...',
+            sendTime: '10:05 PM',
+            active: false,
+            typing: false
+        },
+        {
+            senderName: 'axelle',
+            senderImgSrc: 'https://picsum.photos/200/200',
+            senderMessage: 'It is true though, I knew it from the start...',
+            sendTime: '10:05 PM',
+            active: true,
+            typing: true
+        },
+        {
+            senderName: 'gloria gogo',
+            senderImgSrc: 'https://picsum.photos/200/200',
+            senderMessage: 'OMG, seriously? I didnt know it had happened...',
+            sendTime: '10:05 PM',
+            active: false,
+            typing: false
+        },
+        {
+            senderName: 'ishimwe emmy',
+            senderImgSrc: 'https://picsum.photos/200/200',
+            senderMessage: 'yeah, I was waiting for her...',
+            sendTime: '10:05 PM',
+            active: true,
+            typing: false
+        },
+        {
+            senderName: 'axelle',
+            senderImgSrc: 'https://picsum.photos/200/200',
+            senderMessage: 'It is true though, I knew it from the start...',
+            sendTime: '10:05 PM',
+            active: true,
+            typing: true
+        },
+      ])
+    return <>
+            <div className={classes.leftTopContainer}>
+                <span className={classes.chatTitle}>Chats</span>
+                <OutlinedInput
+                    placeholder="Search messages or users"
+                    className={classes.outlinedInput}
+                    startAdornment={
+                        <InputAdornment position="end">
+                            <FiSearch style={{marginRight: '1rem'}} color='white'  />
+                        </InputAdornment>
+                    }
+                    sx={{color: "#a6b0cf"}}
+                />
+                <div className={classes.onlineMembers}>
+                    <Swiper
+                        modules={[A11y, Navigation]}
+                        spaceBetween={2}
+                        slidesPerView={4}
+                        onSwiper={(swiper) => console.log(swiper)}
+                        onSlideChange={() => console.log('slide change')}
+                        style={{width: '100%', height: '100%'}}
+                    >
+                        {onlineMembers.map(member => (
+                            <SwiperSlide style={{width: '100%', height:'100%'}}>
+                                <div className={classes.onlineMember}>
+                                    <div className={classes.userImageContainer}>
+                                        <img src="https://picsum.photos/200/200?grayscale" className={classes.userImage} alt="" />
+                                        <div className={classes.userStatus}></div>
+                                    </div>
+                                    <div className={classes.blurry}></div>
+                                    <span>
+                                        Steve
+                                    </span>
+                                </div>
+                            </SwiperSlide>
+                        ))}
+                    </Swiper>
+                </div>
+            </div>
+            <div className={classes.recentChats}>
+                <span className={classes.recentsTitle}>Recent</span>
+                <div className={classes.recentChatsContainer}>
+                    {recentMessages.map(message => (
+                        <div className={classes.recentChat}>
+                            <div className={classes.userImageContainer}>
+                                <img src={message.senderImgSrc} className={classes.userImage} alt="" />
+                                <div className={`${classes.userStatus} ${!message.active ? classes.userStatusOffline : ''}`}></div>
+                            </div>
+                            <div>
+                                <span>{message.senderName}</span>
+                                <span className={message.typing ? classes.userTyping : classes.userNotTyping}>{message.typing ? 'typing...' : truncateText(message.senderMessage)}</span>
+                            </div>
+                            <span>{message.sendTime}</span>
+                        </div>
+                    ))}
+                </div>
+            </div>
+        </>
+}

@@ -49,11 +49,11 @@ export function ToastWrapper(props: PropsWithChildren) {
 
     const curState = { notify };
     return (
-        <ToastContext.Provider value={curState}>
-            {props.children}
+        <ToastContext.Provider value={ curState }>
+            { props.children }
             <ToastContainer
-                limit={1}
-                newestOnTop={true}
+                limit={ 1 }
+                newestOnTop={ true }
                 closeOnClick
                 pauseOnFocusLoss
             />
